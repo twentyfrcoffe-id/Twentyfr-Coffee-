@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Twentyfr Coffee Company — Indonesian coffee, roasted with purpose." />
+  <title>Twentyfr Coffee Company</title>
+<!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #071A3A;
+      --navy-2: #0D2A5A;
+      --cream: #F7FAFF;
+      --yellow: #BFD8FF;
+      --brown: #244E86;
+      --black: #071A3A;
+      --white: #fff;
+      --muted: #777;
+      --border: rgba(16, 28, 44, .16);
+      --radius: 0;
+      --max: 1400px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", Arial, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    img { width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max));
+      margin: 0 auto;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .nav {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: .35s ease;
+      color: var(--white);
+    }
+
+    .nav.scrolled {
+      background: rgba(245,242,234,.96);
+      color: var(--navy);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(16,28,44,.08);
+    }
+
+    .nav-inner {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -.06em;
+      font-size: 1.35rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .nav-links a {
+      opacity: .86;
+      transition: .2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      background: var(--yellow);
+      color: var(--navy);
+      padding: 12px 17px;
+      font-weight: 700;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 0;
+      color: inherit;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: 5px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: inherit;
+      padding: 4px 2px;
+      font: inherit;
+      cursor: pointer;
+      opacity: .45;
+    }
+
+    .lang-btn.active {
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.68), rgba(0,0,0,.16)),
+        url("assets/images/hero.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      width: min(calc(100% - 48px), var(--max));
+      margin: 0 auto;
+      padding: 180px 0 70px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .74rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      max-width: 920px;
+      font-size: clamp(4rem, 9vw, 9.4rem);
+      line-height: .84;
+      letter-spacing: -.075em;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -.05em;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 55px;
+    }
+
+    .hero-copy {
+      max-width: 470px;
+      font-size: 1.02rem;
+      color: rgba(255,255,255,.86);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 20px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: .76rem;
+      transition: transform .25s ease;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    /* ---------- INTRO ---------- */
+    .intro {
+      padding: 150px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .section-number {
+      font-size: .72rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .intro h2 {
+      font-size: clamp(3rem, 6vw, 7rem);
+      line-height: .9;
+      letter-spacing: -.065em;
+      max-width: 1000px;
+    }
+
+    .intro h2 em {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+    }
+
+    .intro p {
+      max-width: 580px;
+      margin-top: 40px;
+      font-size: 1.05rem;
+      color: #515151;
+    }
+
+    /* ---------- ORIGIN ---------- */
+    .origin {
+      background: var(--navy);
+      color: var(--white);
+      padding: 110px 0;
+    }
+
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      min-height: 650px;
+    }
+
+    .origin-image {
+      min-height: 650px;
+      background: url("assets/images/origin.jpg") center/cover no-repeat;
+    }
+
+    .origin-content {
+      padding: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .origin h2 {
+      font-size: clamp(3rem, 6vw, 7rem);
+      line-height: .87;
+      letter-spacing: -.065em;
+    }
+
+    .origin h2 span {
+      color: var(--yellow);
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+    }
+
+    .origin p {
+      color: rgba(255,255,255,.72);
+      max-width: 450px;
+      font-size: 1rem;
+    }
+
+    .origins-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .origin-pill {
+      border: 1px solid rgba(255,255,255,.24);
+      padding: 9px 12px;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+
+    .products {
+      color: var(--navy);
+      background: var(--cream);
+    }
+
+    .products .section-head h2,
+    .products .section-head .section-number,
+    .products .section-head p {
+      color: var(--navy);
+    }
+
+    .products .section-head p {
+      opacity: .78;
+    }
+
+    .products .product-card {
+      color: var(--white);
+    }
+
+    /* ---------- PRODUCTS ---------- */
+    .products {
+      padding: 140px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 60px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(3rem, 6vw, 6.5rem);
+      line-height: .88;
+      letter-spacing: -.07em;
+    }
+
+    .section-head p {
+      max-width: 380px;
+      color: var(--muted);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      position: relative;
+      min-height: 580px;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .product-card img {
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform .7s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .product-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,.76), rgba(0,0,0,.05) 70%);
+    }
+
+    .product-card:hover img { transform: scale(1.045); }
+
+    .product-info {
+      position: absolute;
+      z-index: 2;
+      left: 35px;
+      right: 35px;
+      bottom: 32px;
+    }
+
+    .product-number {
+      color: var(--yellow);
+      font-weight: 800;
+      font-size: .72rem;
+      letter-spacing: .12em;
+    }
+
+    .product-info h3 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: .9;
+      letter-spacing: -.05em;
+      margin: 10px 0 14px;
+    }
+
+    .product-info p {
+      color: rgba(255,255,255,.78);
+      max-width: 450px;
+    }
+
+    .product-link { cursor: pointer; text-decoration: none; color: inherit; }
+    .product-link:hover { color: inherit; }
+    .product-link:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+
+    /* ---------- FLAVOR ---------- */
+    .flavor {
+      background: var(--yellow);
+      color: var(--navy);
+      padding: 140px 0;
+      overflow: hidden;
+    }
+
+    .flavor-title {
+      font-size: clamp(3.4rem, 8vw, 9rem);
+      line-height: .82;
+      letter-spacing: -.075em;
+      max-width: 900px;
+    }
+
+    .flavor-title em {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+    }
+
+    .flavor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(16,28,44,.22);
+      margin-top: 75px;
+    }
+
+    .flavor-item {
+      background: var(--yellow);
+      padding: 32px 24px;
+      min-height: 230px;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .flavor-item:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .flavor-item .no {
+      font-size: .7rem;
+      font-weight: 800;
+    }
+
+    .flavor-item h3 {
+      font-size: 2rem;
+      margin: 38px 0 12px;
+      letter-spacing: -.05em;
+    }
+
+    .flavor-item p { font-size: .85rem; }
+
+    /* ---------- PROCESS ---------- */
+    .process {
+      padding: 140px 0;
+    }
+
+    .process h2 {
+      font-size: clamp(3.5rem, 7vw, 8rem);
+      line-height: .84;
+      letter-spacing: -.075em;
+      max-width: 950px;
+    }
+
+    .process-list {
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+    }
+
+    .process-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 1fr;
+      gap: 30px;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .process-row .num {
+      font-weight: 800;
+      color: var(--brown);
+    }
+
+    .process-row h3 {
+      font-size: clamp(1.5rem, 3vw, 2.7rem);
+      letter-spacing: -.05em;
+    }
+
+    .process-row p {
+      color: var(--muted);
+      max-width: 450px;
+    }
+
+    /* ---------- B2B ---------- */
+    .business {
+      background: var(--navy);
+      color: var(--white);
+      padding: 140px 0;
+    }
+
+    .business h2 {
+      font-size: clamp(3.5rem, 8vw, 9rem);
+      line-height: .82;
+      letter-spacing: -.08em;
+      max-width: 1000px;
+    }
+
+    .business h2 span {
+      color: var(--yellow);
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.16);
+      margin-top: 90px;
+    }
+
+    .business-card {
+      background: var(--navy);
+      padding: 38px 28px;
+      min-height: 220px;
+    }
+
+    .business-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .business-card p {
+      color: rgba(255,255,255,.62);
+      font-size: .9rem;
+    }
+
+    .business-cta { margin-top: 55px; }
+
+    /* ---------- CUSTOM ---------- */
+    .custom {
+      padding: 140px 0;
+    }
+
+    .custom-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .custom-image {
+      aspect-ratio: 1/1.08;
+      background: url("assets/images/custom.jpg") center/cover no-repeat;
+    }
+
+    .custom h2 {
+      font-size: clamp(3.5rem, 7vw, 8rem);
+      line-height: .82;
+      letter-spacing: -.075em;
+    }
+
+    .custom h2 span {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .custom p {
+      color: var(--muted);
+      max-width: 550px;
+      margin: 30px 0;
+      font-size: 1.05rem;
+    }
+
+    /* ---------- JOURNAL ---------- */
+    .journal {
+      padding: 120px 0 150px;
+      background: #EEF5FF;
+    }
+
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .journal-card img {
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .journal-card .meta {
+      margin-top: 18px;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+    }
+
+    .journal-card h3 {
+      font-size: 1.55rem;
+      letter-spacing: -.04em;
+      line-height: 1.05;
+      margin-top: 9px;
+    }
+
+    /* ---------- CTA ---------- */
+    .final-cta {
+      padding: 160px 0;
+      background: #DCEBFF;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(4rem, 9vw, 10rem);
+      line-height: .8;
+      letter-spacing: -.085em;
+    }
+
+    .final-cta h2 em {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+    }
+
+    .final-cta p {
+      max-width: 550px;
+      margin: 35px auto;
+    }
+
+    .final-cta .btn {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 65px 0 25px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -.07em;
+    }
+
+    .footer-tagline {
+      margin-top: 15px;
+      color: rgba(255,255,255,.6);
+    }
+
+    .footer-contact {
+      margin-top: 18px;
+      color: rgba(255,255,255,.62);
+      font-size: .82rem;
+      line-height: 1.7;
+    }
+
+    .footer-contact a {
+      color: rgba(255,255,255,.78);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 45px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .7rem;
+    }
+
+    .footer-links div {
+      display: grid;
+      gap: 12px;
+      height: max-content;
+    }
+
+    .footer-links a { color: rgba(255,255,255,.7); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.14);
+      margin-top: 70px;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255,255,255,.42);
+      font-size: .72rem;
+    }
+
+    /* ---------- REVEAL ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+
+    /* ---------- PRODUCT CATALOG / PRICELIST ---------- */
+    .catalog-section {
+      padding: 125px 0;
+      background: var(--cream);
+      color: var(--navy);
+    }
+
+    .catalog-blue {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .catalog-blue .section-head p {
+      color: rgba(255,255,255,.64);
+    }
+
+    .price-table {
+      border-top: 1px solid var(--border);
+      margin-top: 55px;
+    }
+
+    .catalog-blue .price-table {
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: 1.3fr 1.2fr .55fr .65fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      font-size: .9rem;
+    }
+
+    .catalog-blue .price-row {
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .price-head {
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .65rem;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .catalog-blue .price-head {
+      color: rgba(255,255,255,.5);
+    }
+
+    .price-row strong {
+      text-align: right;
+      color: var(--brown);
+    }
+
+    .catalog-blue .price-row strong {
+      color: var(--yellow);
+    }
+
+    .blend-catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 55px;
+    }
+
+    .catalog-card {
+      background: var(--cream);
+      padding: 35px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .catalog-no {
+      font-size: .7rem;
+      font-weight: 800;
+      color: var(--brown);
+    }
+
+    .catalog-card h3 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      letter-spacing: -.06em;
+      line-height: .9;
+    }
+
+    .catalog-card p {
+      color: var(--muted);
+    }
+
+    .catalog-card strong {
+      color: var(--navy);
+    }
+
+    .catalog-action {
+      margin-top: 35px;
+    }
+
+
+    /* ---------- OUR CUSTOMERS ---------- */
+    .customers-section { padding: 125px 0; background: #EEF5FF; color: var(--navy); }
+    .customers-section h2 { font-size: clamp(3rem, 6vw, 6.5rem); line-height: .84; letter-spacing: -.07em; }
+    .customers-section h2 em { font-family: "Playfair Display", serif; font-weight: 500; }
+    .customer-logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 55px; background: #D9E7F8; border: 1px solid #D9E7F8; }
+    .customer-logo { min-height: 150px; display: flex; align-items: center; justify-content: center; background: #F7FAFF; padding: 24px; overflow: hidden; }
+    .customer-logo img { width: 100%; max-width: 190px; max-height: 78px; object-fit: contain; filter: grayscale(100%); opacity: .62; transition: transform .35s ease, filter .35s ease, opacity .35s ease; }
+    .customer-logo:hover img { filter: grayscale(0%); opacity: 1; transform: scale(1.06); }
+
+    /* ---------- CUSTOM HOUSE BLEND BUILDER ---------- */
+    .builder { background: #EEF5FF; padding: 140px 0; }
+    .builder h2 { font-size: clamp(3rem, 6vw, 6.5rem); line-height: .84; letter-spacing: -.07em; }
+    .builder h2 em { font-family: "Playfair Display", serif; font-weight: 500; }
+    .builder-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 20px; margin-top: 65px; align-items: start; }
+    .builder-panel, .checkout-card { background: var(--cream); border: 1px solid var(--border); padding: 32px; }
+    .builder-row { display: grid; grid-template-columns: 1fr 130px 95px; gap: 12px; align-items: end; }
+    .builder label { display: block; font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; margin-bottom: 8px; }
+    .builder select, .builder input, .builder textarea { width: 100%; border: 1px solid var(--border); background: #fff; color: var(--navy); padding: 14px 13px; font: inherit; outline: none; }
+    .add-origin { height: 49px; border: 0; background: var(--navy); color: var(--white); font-weight: 800; cursor: pointer; }
+    .builder-help { font-size: .82rem; color: var(--muted); padding: 18px 0 24px; border-bottom: 1px solid var(--border); }
+    .blend-empty { color: var(--muted); font-size: .9rem; padding: 30px 0; }
+    .blend-item { display: grid; grid-template-columns: 1fr 100px 90px 34px; gap: 12px; align-items: center; padding: 17px 0; border-bottom: 1px solid var(--border); }
+    .blend-name { font-weight: 800; }
+    .blend-meta { color: var(--muted); font-size: .78rem; margin-top: 3px; }
+    .blend-grams, .blend-price { font-weight: 700; text-align: right; font-size: .88rem; }
+    .remove-blend { border: 0; background: transparent; cursor: pointer; font-size: 1.1rem; color: var(--brown); }
+    .blend-progress { margin-top: 30px; }
+    .blend-progress-top { display: flex; justify-content: space-between; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
+    .progress-track { height: 9px; background: #D9E7F8; margin-top: 10px; overflow: hidden; }
+    .progress-track span { display: block; height: 100%; width: 0; background: var(--yellow); transition: width .3s ease; }
+    .builder-note { margin-top: 25px; padding: 16px; background: rgba(191,216,255,.30); font-size: .8rem; color: #35506F; }
+    .checkout-card { position: sticky; top: 105px; background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .checkout-total { color: var(--yellow); font-size: clamp(2.4rem, 4vw, 4rem); font-weight: 800; letter-spacing: -.06em; line-height: 1; margin-top: 15px; }
+    .checkout-sub { color: rgba(255,255,255,.6); font-size: .8rem; margin-top: 8px; }
+    .checkout-summary { margin: 30px 0; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.15); border-bottom: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.78); font-size: .85rem; white-space: pre-line; min-height: 75px; }
+    .checkout-fields { display: grid; gap: 8px; }
+    .checkout-fields label { color: rgba(255,255,255,.72); margin-top: 7px; }
+    .checkout-fields input, .checkout-fields select, .checkout-fields textarea { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.2); color: var(--white); }
+    .checkout-fields select option { color: var(--navy); }
+    .checkout-btn { border: 0; width: 100%; justify-content: center; margin-top: 12px; cursor: pointer; }
+    .checkout-card .checkout-btn { background: var(--yellow); color: var(--navy); }
+    .checkout-card .checkout-btn.disabled { opacity: .35; cursor: not-allowed; }
+
+
+
+    @media (max-width: 900px) {
+      .customer-logos { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .price-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 20px;
+      }
+      .price-row strong { text-align: left; }
+      .blend-catalog-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        display: none;
+        padding: 25px;
+        background: var(--cream);
+        color: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open { display: flex; }
+      .menu-btn { display: block; }
+      .nav-links .nav-cta { width: 100%; text-align: center; }
+
+      .intro-grid,
+      .origin-grid,
+      .custom-grid { grid-template-columns: 1fr; }
+
+      .origin-image { min-height: 500px; }
+      .origin-content { padding: 55px 30px; min-height: 500px; }
+
+      .product-grid { grid-template-columns: 1fr; }
+      .product-card { min-height: 500px; }
+
+      .flavor-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .business-grid { grid-template-columns: 1fr 1fr; }
+
+      .journal-grid { grid-template-columns: 1fr; }
+
+      .footer-top { flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .container,
+      .hero-content { width: min(calc(100% - 32px), var(--max)); }
+
+      .hero h1 { font-size: clamp(3.7rem, 18vw, 6rem); }
+      .hero-bottom { display: block; }
+      .hero-bottom .btn { margin-top: 25px; }
+
+      .intro,
+      .products,
+      .process,
+      .custom,
+      .business,
+      .flavor { padding: 90px 0; }
+
+      .origin { padding: 0; }
+      .origin-image { min-height: 400px; }
+      .origin-content { min-height: 520px; padding: 45px 20px; }
+
+      .section-head { display: block; }
+      .section-head p { margin-top: 25px; }
+
+      .flavor-grid { grid-template-columns: 1fr; }
+      .business-grid { grid-template-columns: 1fr; }
+
+      .process-row {
+        grid-template-columns: 50px 1fr;
+      }
+
+      .process-row p {
+        grid-column: 2;
+      }
+
+      .custom-grid { gap: 40px; }
+
+      .footer-links { flex-direction: column; gap: 25px; }
+      .footer-bottom { display: block; }
+      .footer-bottom span { display: block; margin-top: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+       ========================= -->
+  <header class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home">TWENTYFR COFFEE COMPANY</a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#coffee" data-i18n="navProduct">Product</a>
+        <a href="#business" data-i18n="navBusiness">Business</a>
+        <a href="#story" data-i18n="navStory">Story</a>
+        <a href="#journal" data-i18n="navJournal">Journal</a>
+        <a class="nav-cta" href="#contact" data-i18n="navCTA">Work With Us ⚡</a>
+        <div class="lang-switcher" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="id">ID</button>
+          <span>/</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================
+         HERO
+         GANTI: assets/images/hero.jpg
+         ========================= -->
+    <section class="hero" id="home">
+      <div class="hero-content reveal">
+        <div class="eyebrow" data-i18n="heroEyebrow">Indonesian Coffee Company</div>
+
+        <h1>
+          SAME COFFEE.<br>
+          DIFFERENT <span>ENERGY.</span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-copy" data-i18n="heroCopy">
+            Indonesian coffee, roasted with purpose. From origin to roast,
+            we build coffee for people, brands and businesses that care about
+            what goes into every cup.
+          </p>
+
+          <a class="btn" href="#coffee">Explore Coffee →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         INTRO
+         ========================= -->
+    <section class="intro" id="story">
+      <div class="container intro-grid">
+        <div class="section-number reveal">01 — About Twentyfr</div>
+
+        <div class="reveal">
+          <h2>
+            COFFEE IS NEVER<br>
+            JUST <em>COFFEE.</em>
+          </h2>
+
+          <p data-i18n="aboutCopy">
+            It is origin. Process. People. Craft. And the energy we bring
+            to every cup. Twentyfr connects Indonesian coffee with modern
+            coffee businesses through sourcing, roasting and custom coffee
+            development.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         ORIGIN
+         GANTI: assets/images/origin.jpg
+         ========================= -->
+    <section class="origin">
+      <div class="container origin-grid">
+        <div class="origin-image reveal"></div>
+
+        <div class="origin-content reveal">
+          <div>
+            <div class="section-number" data-i18n="originEyebrow">02 — Origin</div>
+            <h2>
+              FROM<br>
+              <span>INDONESIA.</span><br>
+              FOR<br>
+              EVERYWHERE.
+            </h2>
+          </div>
+
+          <div>
+            <p data-i18n="originCopy">
+              Indonesia is more than an origin. It is a collection of
+              landscapes, cultures, varieties and processing traditions.
+            </p>
+
+            <div class="origins-list">
+              <span class="origin-pill">Sumatra</span>
+              <span class="origin-pill">Java</span>
+              <span class="origin-pill">Sulawesi</span>
+              <span class="origin-pill">Bali</span>
+              <span class="origin-pill">Flores</span>
+              <span class="origin-pill">Papua</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PRODUCTS
+         GANTI GAMBAR:
+         roasted.jpg
+         single-origin.jpg
+         house-blend.jpg
+         custom.jpg
+         ========================= -->
+    <section class="products" id="coffee">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number" data-i18n="coffeeEyebrow">03 — Our Coffee</div>
+            <h2>COFFEE<br>WITH PURPOSE.</h2>
+          </div>
+
+          <p data-i18n="coffeeCopy">
+            From daily coffee programs to distinctive specialty lots,
+            choose the coffee direction that fits your business.
+          </p>
+        </div>
+
+        <div class="product-grid">
+
+          <a class="product-card reveal product-link" href="#roasted-pricelist">
+            <img src="assets/images/roasted.jpg" alt="Twentyfr roasted coffee">
+            <div class="product-info">
+              <div class="product-number" data-i18n="prod01No">01 / ROASTED COFFEE</div>
+              <h3>ROASTED<br>COFFEE</h3>
+              <p>Consistent roasted coffee for coffee shops, offices and daily brewing.</p>
+            </div>
+          </a>
+
+          <a class="product-card reveal product-link" href="#green-beans-pricelist">
+            <img src="assets/images/single-origin.jpg" alt="Twentyfr green beans">
+            <div class="product-info">
+              <div class="product-number" data-i18n="prod02No">02 / GREEN BEANS</div>
+              <h3>GREEN<br>BEANS</h3>
+              <p>Indonesian green beans for roasteries, coffee businesses and export sourcing.</p>
+            </div>
+          </a>
+
+          <a class="product-card reveal product-link" href="#house-blend-catalog">
+            <img src="assets/images/house-blend.jpg" alt="Twentyfr house blend">
+            <div class="product-info">
+              <div class="product-number" data-i18n="prod03No">03 / HOUSE BLEND</div>
+              <h3>HOUSE<br>BLEND</h3>
+              <p>Balanced coffee profiles developed for consistency and commercial performance.</p>
+            </div>
+          </a>
+
+          <a class="product-card reveal product-link" href="https://wa.me/628815433678?text=Halo%20Twentyfr%20Coffee%20Company%2C%20saya%20tertarik%20dengan%20Custom%20Coffee." target="_blank" rel="noopener">
+            <div class="product-info">
+              <div class="product-number" data-i18n="prod04No">04 / CUSTOM COFFEE</div>
+              <h3>CUSTOM<br>COFFEE</h3>
+              <p>Your concept, your taste direction, our coffee development expertise.</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================
+         ROASTED COFFEE PRICELIST
+         ========================= -->
+    <section class="catalog-section" id="roasted-pricelist">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number" data-i18n="roastedEyebrow">04 — Roasted Coffee</div>
+            <h2>ROASTED<br>LINEUP.</h2>
+          </div>
+          <p data-i18n="roastedCopy">Current roasted coffee lineup and B2B pricing. Update the table below whenever your price list changes.</p>
+        </div>
+
+        <div class="price-table reveal">
+          <div class="price-row price-head">
+            <span>Product</span><span>Profile</span><span>Size</span><span>Price</span>
+          </div>
+          <div class="price-row"><span>Twentyfr House Espresso</span><span>Chocolate · Caramel · Nutty</span><span>1 Kg</span><strong>Rp —</strong></div>
+          <div class="price-row"><span>Arabika Kerinci</span><span>Fruity · Sweet · Clean</span><span>1 Kg</span><strong>Rp —</strong></div>
+          <div class="price-row"><span>Robusta Java</span><span>Bold · Cocoa · Spices</span><span>1 Kg</span><strong>Rp —</strong></div>
+          <div class="price-row"><span>Specialty Collection</span><span>Rotating seasonal lots</span><span>250g</span><strong>Rp —</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         GREEN BEANS PRICELIST
+         ========================= -->
+    <section class="catalog-section catalog-blue" id="green-beans-pricelist">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number" data-i18n="greenEyebrow">05 — Green Beans</div>
+            <h2>GREEN<br>BEANS.</h2>
+          </div>
+          <p data-i18n="greenCopy">Current Indonesian green bean availability for roastery, commercial and export sourcing.</p>
+        </div>
+
+        <div class="price-table reveal">
+          <div class="price-row price-head">
+            <span>Origin</span><span>Process / Grade</span><span>Stock</span><span>Price</span>
+          </div>
+          <div class="price-row"><span>Arabika Gayo</span><span>Washed · Specialty</span><span>Available</span><strong>Rp —</strong></div>
+          <div class="price-row"><span>Arabika Flores</span><span>Washed · Specialty</span><span>Available</span><strong>Rp —</strong></div>
+          <div class="price-row"><span>Arabika Kerinci</span><span>Natural / Anaerobic</span><span>Available</span><strong>Rp —</strong></div>
+          <div class="price-row"><span>Robusta Java</span><span>Natural · Commercial</span><span>Available</span><strong>Rp —</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         HOUSE BLEND CATALOG
+         ========================= -->
+    <section class="catalog-section" id="house-blend-catalog">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number" data-i18n="houseEyebrow">06 — House Blend</div>
+            <h2>HOUSE BLEND<br>CATALOG.</h2>
+          </div>
+          <p data-i18n="houseCopy">Blend options for coffee shops, restaurants, hotels and other coffee businesses.</p>
+        </div>
+
+        <div class="blend-catalog-grid">
+          <article class="catalog-card reveal">
+            <div class="catalog-no">01</div>
+            <h3>CLASSIC</h3>
+            <p>Chocolate · Caramel · Nutty</p>
+            <strong>Rp — / Kg</strong>
+          </article>
+          <article class="catalog-card reveal">
+            <div class="catalog-no">02</div>
+            <h3>BALANCED</h3>
+            <p>Brown Sugar · Cocoa · Citrus</p>
+            <strong>Rp — / Kg</strong>
+          </article>
+          <article class="catalog-card reveal">
+            <div class="catalog-no">03</div>
+            <h3>FRUITY</h3>
+            <p>Berry · Tropical · Sweet</p>
+            <strong>Rp — / Kg</strong>
+          </article>
+          <article class="catalog-card reveal">
+            <div class="catalog-no">04</div>
+            <h3>BOLD</h3>
+            <p>Dark Chocolate · Spice · Full Body</p>
+            <strong>Rp — / Kg</strong>
+          </article>
+        </div>
+
+        <div class="catalog-action reveal">
+          <a class="btn" href="#custom-builder">Build Your Own Blend →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         FLAVOR
+         ========================= -->
+    <section class="flavor">
+      <div class="container">
+        <div class="section-number reveal">07 — Find Your Energy</div>
+
+        <h2 class="flavor-title reveal">
+          FIND YOUR<br><em>ENERGY.</em>
+        </h2>
+
+        <div class="flavor-grid">
+
+          <article class="flavor-item reveal">
+            <div class="no">01</div>
+            <h3>BOLD</h3>
+            <p>Dark Chocolate · Spices · Roasted Nuts</p>
+          </article>
+
+          <article class="flavor-item reveal">
+            <div class="no">02</div>
+            <h3>SMOOTH</h3>
+            <p>Caramel · Brown Sugar · Milk Chocolate</p>
+          </article>
+
+          <article class="flavor-item reveal">
+            <div class="no">03</div>
+            <h3>FRUITY</h3>
+            <p>Berry · Tropical Fruit · Citrus</p>
+          </article>
+
+          <article class="flavor-item reveal">
+            <div class="no">04</div>
+            <h3>EXPERIMENTAL</h3>
+            <p>Floral · Fermented · Complex</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROCESS
+         ========================= -->
+    <section class="process">
+      <div class="container">
+        <div class="section-number reveal">08 — Our Approach</div>
+
+        <h2 class="reveal">
+          FROM FARM<br>
+          TO YOUR <em>BRAND.</em>
+        </h2>
+
+        <div class="process-list">
+
+          <div class="process-row reveal">
+            <div class="num">01</div>
+            <h3>SOURCE</h3>
+            <p data-i18n="processSource">We select coffees with purpose, focusing on quality, origin and consistency.</p>
+          </div>
+
+          <div class="process-row reveal">
+            <div class="num">02</div>
+            <h3>SELECT</h3>
+            <p data-i18n="processSelect">Green coffee is evaluated through physical inspection and cupping.</p>
+          </div>
+
+          <div class="process-row reveal">
+            <div class="num">03</div>
+            <h3>ROAST</h3>
+            <p data-i18n="processRoast">Profiles are developed around the character of the coffee and intended application.</p>
+          </div>
+
+          <div class="process-row reveal">
+            <div class="num">04</div>
+            <h3>DEVELOP</h3>
+            <p data-i18n="processDevelop">We create house blends and custom profiles around each business concept.</p>
+          </div>
+
+          <div class="process-row reveal">
+            <div class="num">05</div>
+            <h3>DELIVER</h3>
+            <p data-i18n="processDeliver">Reliable coffee supply built for long-term partnerships.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         B2B
+         ========================= -->
+    <section class="business" id="business">
+      <div class="container">
+        <div class="section-number reveal">09 — For Business</div>
+
+        <h2 class="reveal">
+          BUILT FOR<br>
+          COFFEE <span>BUSINESS.</span>
+        </h2>
+
+        <div class="business-grid">
+
+          <article class="business-card reveal">
+            <h3>COFFEE SHOP</h3>
+            <p data-i18n="businessShop">Consistent roasted beans for your daily coffee operation.</p>
+          </article>
+
+          <article class="business-card reveal">
+            <h3>HOTEL & RESTAURANT</h3>
+            <p data-i18n="businessHotel">Coffee programs designed around your service and customer experience.</p>
+          </article>
+
+          <article class="business-card reveal">
+            <h3>ROASTERY</h3>
+            <p data-i18n="businessRoastery">Green coffee sourcing and supply for growing roasteries.</p>
+          </article>
+
+          <article class="business-card reveal">
+            <h3>PRIVATE LABEL</h3>
+            <p data-i18n="businessPrivate">Your brand. Your packaging. Our coffee development and roasting.</p>
+          </article>
+
+          <article class="business-card reveal">
+            <h3>DISTRIBUTOR</h3>
+            <p data-i18n="businessDistributor">Indonesian coffee supply for partners looking for reliable sourcing.</p>
+          </article>
+
+          <article class="business-card reveal">
+            <h3>CUSTOM BLEND</h3>
+            <p data-i18n="businessBlend">Build a coffee profile specifically for your menu and target market.</p>
+          </article>
+
+        </div>
+
+        <div class="business-cta reveal">
+          <a class="btn" href="#contact">Work With Twentyfr ⚡</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CUSTOM BLEND
+         GANTI: assets/images/custom.jpg
+         ========================= -->
+    
+    <!-- =========================
+         OUR CUSTOMERS
+         ========================= -->
+    <section class="customers-section" id="customers">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number" data-i18n="customersEyebrow">10 — Our Customers</div>
+            <h2>OUR<br><em>CUSTOMERS.</em></h2>
+          </div>
+          <p data-i18n="customersCopy">
+            Trusted by coffee shops, hospitality businesses, roasteries and coffee partners.
+          </p>
+        </div>
+
+        <div class="customer-logos reveal">
+          <div class="customer-logo"><img src="assets/customer-logos/customer-01.svg" alt="Twentyfr customer 01"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-02.svg" alt="Twentyfr customer 02"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-03.svg" alt="Twentyfr customer 03"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-04.svg" alt="Twentyfr customer 04"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-05.svg" alt="Twentyfr customer 05"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-06.svg" alt="Twentyfr customer 06"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-07.svg" alt="Twentyfr customer 07"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-08.svg" alt="Twentyfr customer 08"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-09.svg" alt="Twentyfr customer 09"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-10.svg" alt="Twentyfr customer 10"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-11.svg" alt="Twentyfr customer 11"></div>
+          <div class="customer-logo"><img src="assets/customer-logos/customer-12.svg" alt="Twentyfr customer 12"></div>
+        </div>
+      </div>
+    </section>
+
+<section class="custom">
+      <div class="container custom-grid">
+
+        <div class="custom-image reveal"></div>
+
+        <div class="reveal">
+          <div class="section-number" data-i18n="customEyebrow">11 — Custom Coffee</div>
+
+          <h2>
+            YOUR BRAND.<br>
+            YOUR <span>BLEND.</span>
+          </h2>
+
+          <p data-i18n="customCopy">
+            We develop coffee profiles around your concept, menu,
+            target customer and desired price point. From first sample
+            to production, our team works with you to create a coffee
+            that feels like your own.
+          </p>
+
+          <a class="btn" href="#contact">Create Your Blend →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         CUSTOM HOUSE BLEND BUILDER
+         ========================= -->
+    <section class="builder" id="custom-builder">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number" data-i18n="builderEyebrow">12 — Custom House Blend</div>
+            <h2>ORDER YOUR<br><em>COFFEE SAMPLE.</em></h2>
+          </div>
+          <p data-i18n="builderCopy">Choose origins, set grams, and see your sample price instantly. Minimum order: 100g · Maximum order: 1000g.</p>
+        </div>
+
+        <div class="builder-grid">
+          <div class="builder-panel reveal">
+            <div class="builder-row">
+              <div>
+                <label for="originSelect" data-i18n="chooseOrigin">Choose Origin</label>
+                <select id="originSelect">
+                  <option value="Arabika Gayo" data-price="300">Arabika Gayo — Rp300/g</option>
+                  <option value="Arabika Flores" data-price="350">Arabika Flores — Rp350/g</option>
+                  <option value="Arabika Kerinci" data-price="325">Arabika Kerinci — Rp325/g</option>
+                  <option value="Arabika Ciwidey" data-price="310">Arabika Ciwidey — Rp310/g</option>
+                  <option value="Robusta Java" data-price="180">Robusta Java — Rp180/g</option>
+                </select>
+              </div>
+              <div>
+                <label for="gramInput" data-i18n="gramLabel">Gram</label>
+                <input id="gramInput" type="number" min="1" max="1000" value="50">
+              </div>
+              <button class="add-origin" id="addOrigin" data-i18n="addOrigin">ADD +</button>
+            </div>
+
+            <div class="builder-help" data-i18n="builderExample">Example: 50g Gayo + 50g Flores = 100g custom sample.</div>
+            <div class="blend-list" id="blendList"></div>
+
+            <div class="blend-progress">
+              <div class="blend-progress-top">
+                <span data-i18n="totalSample">Total sample</span><strong><span id="totalGrams">0</span>g / 1000g</strong>
+              </div>
+              <div class="progress-track"><span id="progressBar"></span></div>
+            </div>
+
+            <div class="builder-note">
+              <strong>Price per gram is editable.</strong> Change the rates in the JavaScript section of this file.
+            </div>
+          </div>
+
+          <aside class="checkout-card reveal">
+            <div class="section-number" data-i18n="yourSample">YOUR SAMPLE</div>
+            <div class="checkout-total" id="blendTotal">Rp0</div>
+            <div class="checkout-sub" data-i18n="sampleLimit">Custom House Blend Sample · Min 100g · Max 1000g</div>
+            <div class="checkout-summary" id="checkoutSummary">Add at least one origin.</div>
+
+            <div class="checkout-fields">
+              <label for="customerName" data-i18n="nameLabel">Name</label>
+              <input id="customerName" type="text" placeholder="Your name">
+
+              <label for="coffeeShop" data-i18n="shopLabel">Coffee Shop / Business Name</label>
+              <input id="coffeeShop" type="text" placeholder="Coffee shop / business name">
+
+              <label for="monthlyUsage" data-i18n="usageLabel">Estimated Monthly Coffee Usage</label>
+              <select id="monthlyUsage">
+                <option value="">Select estimated usage</option>
+                <option value="< 5 Kg / month">< 5 Kg / month</option>
+                <option value="5–10 Kg / month">5–10 Kg / month</option>
+                <option value="10–25 Kg / month">10–25 Kg / month</option>
+                <option value="25–50 Kg / month">25–50 Kg / month</option>
+                <option value="50–100 Kg / month">50–100 Kg / month</option>
+                <option value="100+ Kg / month">100+ Kg / month</option>
+              </select>
+
+              <label for="customerPhone" data-i18n="waLabel">WhatsApp</label>
+              <input id="customerPhone" type="tel" placeholder="08xxxxxxxxxx">
+
+              <label for="destination" data-i18n="addressLabel">Delivery Address</label>
+              <textarea id="destination" rows="3" placeholder="Full delivery address"></textarea>
+            </div>
+
+            <button class="btn checkout-btn disabled" id="orderSample" disabled>
+              Order Sample via WhatsApp →
+            </button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         JOURNAL
+         GANTI:
+         journal-1.jpg
+         journal-2.jpg
+         journal-3.jpg
+         ========================= -->
+    <section class="journal" id="journal">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number">08 — Journal</div>
+            <h2>COFFEE<br>NOTES.</h2>
+          </div>
+
+          <p data-i18n="journalCopy">
+            Stories from origin, roasting, processing and the people
+            behind Indonesian coffee.
+          </p>
+        </div>
+
+        <div class="journal-grid">
+
+          <article class="journal-card reveal">
+            <img src="assets/images/journal-1.jpg" alt="Indonesian coffee farm">
+            <div class="meta">Origin / 01</div>
+            <h3>Why Indonesian Coffee Is Changing</h3>
+          </article>
+
+          <article class="journal-card reveal">
+            <img src="assets/images/journal-2.jpg" alt="Coffee processing">
+            <div class="meta">Process / 02</div>
+            <h3>Understanding Fermentation & Processing</h3>
+          </article>
+
+          <article class="journal-card reveal">
+            <img src="assets/images/journal-3.jpg" alt="Coffee roasting">
+            <div class="meta">Roasting / 03</div>
+            <h3>How We Build A House Blend</h3>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         FINAL CTA
+         ========================= -->
+    <section class="final-cta" id="contact">
+      <div class="container reveal">
+
+        <div class="section-number">09 — Let's Talk</div>
+
+        <h2>
+          LET'S MAKE<br>
+          BETTER <em>COFFEE.</em>
+        </h2>
+
+        <p data-i18n="contactCopy">
+          Looking for roasted coffee, green beans, custom blends
+          or a long-term coffee partner?
+        </p>
+
+        <!-- GANTI NOMOR WHATSAPP DI BAWAH -->
+        <a
+          class="btn"
+          href="https://wa.me/6280000000000?text=Hello%20Twentyfr%20Coffee%20Company%2C%20I%20would%20like%20to%20discuss%20a%20coffee%20partnership."
+          target="_blank"
+          rel="noopener"
+        >
+          Talk To Twentyfr →
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div>
+          <div class="footer-logo">TWENTYFR COFFEE COMPANY</div>
+          <div class="footer-tagline">Same Coffee. Different Energy.</div>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <a href="#coffee">Product</a>
+            <a href="#business">Business</a>
+            <a href="#story">Story</a>
+          </div>
+
+          <div>
+            <a href="#journal">Journal</a>
+            <a href="#contact">Contact</a>
+            <a href="https://instagram.com/twentyfrcoffee.roastery" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Twentyfr Coffee Company</span>
+        <span>Slowbar & Roastery · Tangerang · Indonesia ⚡</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Navbar berubah saat scroll
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 60);
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+
+    // =========================
+    // CUSTOM HOUSE BLEND BUILDER
+    // =========================
+    const blendItems = [];
+    const originSelect = document.getElementById("originSelect");
+    const gramInput = document.getElementById("gramInput");
+    const addOrigin = document.getElementById("addOrigin");
+    const blendList = document.getElementById("blendList");
+    const totalGramsEl = document.getElementById("totalGrams");
+    const progressBar = document.getElementById("progressBar");
+    const blendTotal = document.getElementById("blendTotal");
+    const checkoutSummary = document.getElementById("checkoutSummary");
+    const orderSample = document.getElementById("orderSample");
+    const shippingResult = document.getElementById("shippingResult");
+    const checkShipping = document.getElementById("checkShipping");
+
+    // EDIT HARGA PER GRAM DI SINI
+    const PRICE_PER_GRAM = {
+      "Arabika Gayo": 300,
+      "Arabika Flores": 350,
+      "Arabika Kerinci": 325,
+      "Arabika Ciwidey": 310,
+      "Robusta Java": 180
+    };
+
+    const formatIDR = value => new Intl.NumberFormat("id-ID", {
+      style: "currency", currency: "IDR", maximumFractionDigits: 0
+    }).format(value);
+
+    const getTotalGrams = () => blendItems.reduce((s, i) => s + i.grams, 0);
+    const getTotalPrice = () => blendItems.reduce((s, i) => s + i.grams * i.price, 0);
+
+    function renderBlend() {
+      if (!blendItems.length) {
+        blendList.innerHTML = '<div class="blend-empty">Your blend is empty. Add an origin above.</div>';
+      } else {
+        blendList.innerHTML = blendItems.map((item, index) => `
+          <div class="blend-item">
+            <div><div class="blend-name">${item.origin}</div><div class="blend-meta">${formatIDR(item.price)}/g</div></div>
+            <div class="blend-grams">${item.grams}g</div>
+            <div class="blend-price">${formatIDR(item.grams * item.price)}</div>
+            <button class="remove-blend" onclick="removeBlend(${index})" aria-label="Remove">×</button>
+          </div>
+        `).join("");
+      }
+
+      const grams = getTotalGrams();
+      const price = getTotalPrice();
+      totalGramsEl.textContent = grams;
+      progressBar.style.width = Math.min(grams, 100) + "%";
+      blendTotal.textContent = formatIDR(price);
+
+      if (grams >= 100 && grams <= 1000) {
+        checkoutSummary.textContent = blendItems.map(i =>
+          `${i.origin}: ${i.grams}g × ${formatIDR(i.price)}/g`
+        ).join("\n");
+        orderSample.disabled = false;
+        orderSample.classList.remove("disabled");
+      } else if (grams > 1000) {
+        checkoutSummary.textContent = "Order exceeds the 1000g maximum.";
+        orderSample.disabled = true;
+        orderSample.classList.add("disabled");
+      } else {
+        checkoutSummary.textContent = `Current blend: ${grams}g\nAdd ${100 - grams}g more to reach the 100g minimum.`;
+        orderSample.disabled = true;
+        orderSample.classList.add("disabled");
+      }
+    }
+
+    addOrigin.addEventListener("click", () => {
+      const option = originSelect.options[originSelect.selectedIndex];
+      const origin = option.value;
+      const price = Number(option.dataset.price || PRICE_PER_GRAM[origin] || 0);
+      const grams = Number(gramInput.value);
+
+      if (!grams || grams < 1) return alert("Masukkan jumlah gram minimal 1g.");
+      if (getTotalGrams() + grams > 1000) {
+        return alert(`Maksimal order sample adalah 1000g. Sisa kapasitas: ${1000 - getTotalGrams()}g.`);
+      }
+
+      const existing = blendItems.find(i => i.origin === origin);
+      if (existing) existing.grams += grams;
+      else blendItems.push({ origin, grams, price });
+
+      renderBlend();
+    });
+
+    window.removeBlend = index => {
+      blendItems.splice(index, 1);
+      renderBlend();
+    };
+
+    // Checkout langsung diteruskan ke WhatsApp Twentyfr.
+    // Tidak ada pengecekan ongkir di halaman ini.
+
+    orderSample.addEventListener("click", () => {
+      if (getTotalGrams() < 100 || getTotalGrams() > 1000) return;
+
+      const name = document.getElementById("customerName").value.trim();
+      const coffeeShop = document.getElementById("coffeeShop").value.trim();
+      const monthlyUsage = document.getElementById("monthlyUsage").value;
+      const phone = document.getElementById("customerPhone").value.trim();
+      const destination = document.getElementById("destination").value.trim();
+
+      if (!name || !coffeeShop || !monthlyUsage || !phone || !destination) {
+        return alert("Lengkapi nama, nama coffee shop, estimasi pemakaian per bulan, WhatsApp, dan alamat pengiriman.");
+      }
+
+      const blendText = blendItems.map(i =>
+        `${i.origin} ${i.grams}g (${formatIDR(i.price)}/g)`
+      ).join(" + ");
+
+      const message = [
+        "Halo Twentyfr Coffee Company,",
+        "",
+        "Saya ingin memesan Sample Custom House Blend",
+        "",
+        `Nama: ${name}`,
+        `Coffee Shop / Business: ${coffeeShop}`,
+        `Estimasi pemakaian per bulan: ${monthlyUsage}`,
+        `WhatsApp: ${phone}`,
+        `Blend : ${blendText}`,
+        `Total sample: ${getTotalGrams()}g`,
+        `Harga kopi: ${formatIDR(getTotalPrice())}`,
+        `Alamat Pengiriman: ${destination}`,
+        "",
+        "Mohon dibantu proses order dan konfirmasi total ongkir serta pembayaran.",
+        "",
+        "Terimakasih"
+      ].join("\n");
+
+      // Nomor WhatsApp Twentyfr: +62 881-5433-678
+      window.open(
+        `https://wa.me/628815433678?text=${encodeURIComponent(message)}`,
+        "_blank"
+      );
+    });
+
+    renderBlend();
+
+
+    // =========================
+    // BILINGUAL WEBSITE
+    // Slogan / hero headline stays unchanged.
+    // Descriptions and interface copy switch ID / EN.
+    // =========================
+    const translations = {
+      id: {
+        navProduct: "Product", navBusiness: "Business", navStory: "Story", navJournal: "Journal", navCTA: "Work With Us ⚡",
+        heroEyebrow: "Indonesian Coffee Company",
+        heroCopy: "Kopi Indonesia, dipanggang dengan tujuan. Dari origin hingga roasting, kami membangun kopi untuk individu, brand, dan bisnis yang peduli dengan apa yang ada di setiap cangkir.",
+        aboutEyebrow: "01 — Tentang Twentyfr",
+        aboutCopy: "Ini adalah tentang origin, proses, manusia, keahlian, dan energi yang kami bawa ke setiap cangkir. Twentyfr menghubungkan kopi Indonesia dengan bisnis kopi modern melalui sourcing, roasting, dan pengembangan kopi custom.",
+        originEyebrow: "02 — Origin",
+        originCopy: "Indonesia bukan hanya sebuah origin. Indonesia adalah kumpulan lanskap, budaya, varietas, dan tradisi pengolahan kopi.",
+        coffeeEyebrow: "03 — Kopi Kami",
+        coffeeCopy: "Dari program kopi harian hingga lot specialty yang khas, pilih arah kopi yang sesuai dengan bisnis Anda.",
+        roastedEyebrow: "04 — Roasted Coffee",
+        roastedCopy: "Lineup roasted coffee dan harga B2B terbaru. Update tabel ini sesuai perubahan price list Anda.",
+        greenEyebrow: "05 — Green Beans",
+        greenCopy: "Ketersediaan green bean Indonesia untuk roastery, kebutuhan commercial, dan sourcing ekspor.",
+        houseEyebrow: "06 — House Blend",
+        houseCopy: "Pilihan blend untuk coffee shop, restoran, hotel, dan bisnis kopi lainnya.",
+        energyEyebrow: "07 — Find Your Energy",
+        approachEyebrow: "08 — Cara Kami Bekerja",
+        processSource: "Kami memilih kopi dengan tujuan, dengan fokus pada kualitas, origin, dan konsistensi.",
+        processSelect: "Green coffee dievaluasi melalui pemeriksaan fisik dan cupping.",
+        processRoast: "Profil roasting dikembangkan berdasarkan karakter kopi dan tujuan penggunaannya.",
+        processDevelop: "Kami membuat house blend dan profil custom berdasarkan konsep setiap bisnis.",
+        processDeliver: "Pasokan kopi yang andal untuk membangun partnership jangka panjang.",
+        businessEyebrow: "09 — Untuk Bisnis",
+        businessShop: "Roasted beans yang konsisten untuk operasional coffee shop Anda.",
+        businessHotel: "Program kopi yang dirancang berdasarkan layanan dan pengalaman customer Anda.",
+        businessRoastery: "Sourcing dan pasokan green coffee untuk roastery yang sedang berkembang.",
+        businessPrivate: "Brand Anda. Packaging Anda. Keahlian pengembangan dan roasting kopi kami.",
+        businessDistributor: "Pasokan kopi Indonesia untuk partner yang membutuhkan sourcing yang andal.",
+        businessBlend: "Bangun profil kopi yang khusus untuk menu dan target market Anda.",
+        customEyebrow: "10 — Custom Coffee",
+        customCopy: "Kami mengembangkan profil kopi berdasarkan konsep, menu, target customer, dan target harga Anda. Dari sample pertama hingga produksi, kami bekerja bersama Anda untuk membuat kopi yang terasa benar-benar milik brand Anda.",
+        builderEyebrow: "11 — Custom House Blend",
+        builderCopy: "Pilih origin, tentukan gram, dan lihat harga sample secara langsung. Minimum order: 100g · Maximum order: 1000g.",
+        builderExample: "Contoh: 50g Gayo + 50g Flores = sample custom 100g.",
+        journalEyebrow: "12 — Journal",
+        journalCopy: "Cerita tentang origin, roasting, processing, dan orang-orang di balik kopi Indonesia.",
+        contactEyebrow: "13 — Hubungi Kami",
+        contactCopy: "Mencari roasted coffee, green beans, custom blend, atau partner kopi jangka panjang?",
+        customersEyebrow: "09 — Customer Kami", customersCopy: "Dipercaya oleh coffee shop, bisnis hospitality, roastery, dan partner kopi.",
+        prod01No: "01 / ROASTED COFFEE", prod02No: "02 / GREEN BEANS", prod03No: "03 / HOUSE BLEND", prod04No: "04 / CUSTOM COFFEE",
+        yourSample: "SAMPLE ANDA", sampleLimit: "Custom House Blend Sample · Min 100g · Max 1000g",
+        chooseOrigin: "Pilih Origin", gramLabel: "Gram", addOrigin: "TAMBAH +", totalSample: "Total sample",
+        nameLabel: "Nama", shopLabel: "Nama Coffee Shop / Bisnis", usageLabel: "Estimasi Pemakaian Kopi per Bulan",
+        waLabel: "WhatsApp", addressLabel: "Alamat Pengiriman", orderSampleBtn: "Order Sample via WhatsApp →"
+      },
+      en: {
+        navProduct: "Product", navBusiness: "Business", navStory: "Story", navJournal: "Journal", navCTA: "Work With Us ⚡",
+        heroEyebrow: "Indonesian Coffee Company",
+        heroCopy: "Indonesian coffee, roasted with purpose. From origin to roast, we build coffee for people, brands and businesses that care about what goes into every cup.",
+        aboutEyebrow: "01 — About Twentyfr",
+        aboutCopy: "It is about origin, process, people, craft and the energy we bring to every cup. Twentyfr connects Indonesian coffee with modern coffee businesses through sourcing, roasting and custom coffee development.",
+        originEyebrow: "02 — Origin",
+        originCopy: "Indonesia is more than an origin. It is a collection of landscapes, cultures, varieties and processing traditions.",
+        coffeeEyebrow: "03 — Our Coffee",
+        coffeeCopy: "From daily coffee programs to distinctive specialty lots, choose the coffee direction that fits your business.",
+        roastedEyebrow: "04 — Roasted Coffee",
+        roastedCopy: "Current roasted coffee lineup and B2B pricing. Update the table whenever your price list changes.",
+        greenEyebrow: "05 — Green Beans",
+        greenCopy: "Current Indonesian green bean availability for roastery, commercial and export sourcing.",
+        houseEyebrow: "06 — House Blend",
+        houseCopy: "Blend options for coffee shops, restaurants, hotels and other coffee businesses.",
+        energyEyebrow: "07 — Find Your Energy",
+        approachEyebrow: "08 — Our Approach",
+        processSource: "We select coffees with purpose, focusing on quality, origin and consistency.",
+        processSelect: "Green coffee is evaluated through physical inspection and cupping.",
+        processRoast: "Profiles are developed around the character of the coffee and intended application.",
+        processDevelop: "We create house blends and custom profiles around each business concept.",
+        processDeliver: "Reliable coffee supply built for long-term partnerships.",
+        businessEyebrow: "09 — For Business",
+        businessShop: "Consistent roasted beans for your daily coffee operation.",
+        businessHotel: "Coffee programs designed around your service and customer experience.",
+        businessRoastery: "Green coffee sourcing and supply for growing roasteries.",
+        businessPrivate: "Your brand. Your packaging. Our coffee development and roasting.",
+        businessDistributor: "Indonesian coffee supply for partners looking for reliable sourcing.",
+        businessBlend: "Build a coffee profile specifically for your menu and target market.",
+        customEyebrow: "10 — Custom Coffee",
+        customCopy: "We develop coffee profiles around your concept, menu, target customer and desired price point. From first sample to production, we work with you to create a coffee that feels like your own.",
+        builderEyebrow: "11 — Custom House Blend",
+        builderCopy: "Choose origins, set grams, and see your sample price instantly. Minimum order: 100g · Maximum order: 1000g.",
+        builderExample: "Example: 50g Gayo + 50g Flores = 100g custom sample.",
+        journalEyebrow: "12 — Journal",
+        journalCopy: "Stories from origin, roasting, processing and the people behind Indonesian coffee.",
+        contactEyebrow: "13 — Let's Talk",
+        contactCopy: "Looking for roasted coffee, green beans, custom blends or a long-term coffee partner?",
+        customersEyebrow: "09 — Our Customers", customersCopy: "Trusted by coffee shops, hospitality businesses, roasteries and coffee partners.",
+        prod01No: "01 / ROASTED COFFEE", prod02No: "02 / GREEN BEANS", prod03No: "03 / HOUSE BLEND", prod04No: "04 / CUSTOM COFFEE",
+        yourSample: "YOUR SAMPLE", sampleLimit: "Custom House Blend Sample · Min 100g · Max 1000g",
+        chooseOrigin: "Choose Origin", gramLabel: "Gram", addOrigin: "ADD +", totalSample: "Total sample",
+        nameLabel: "Name", shopLabel: "Coffee Shop / Business Name", usageLabel: "Estimated Monthly Coffee Usage",
+        waLabel: "WhatsApp", addressLabel: "Delivery Address", orderSampleBtn: "Order Sample via WhatsApp →"
+      }
+    };
+
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang === "id" ? "id" : "en";
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+      });
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+
+      const usageSelect = document.getElementById("monthlyUsage");
+      if (usageSelect) {
+        const usageOptions = lang === "id"
+          ? ["Pilih estimasi penggunaan", "< 5 Kg / bulan", "5–10 Kg / bulan", "10–25 Kg / bulan", "25–50 Kg / bulan", "50–100 Kg / bulan", "100+ Kg / bulan"]
+          : ["Select estimated usage", "< 5 Kg / month", "5–10 Kg / month", "10–25 Kg / month", "25–50 Kg / month", "50–100 Kg / month", "100+ Kg / month"];
+        usageOptions.forEach((text, i) => {
+          if (usageSelect.options[i]) usageSelect.options[i].textContent = text;
+        });
+      }
+
+      localStorage.setItem("twentyfrLanguage", lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+
+    applyLanguage(localStorage.getItem("twentyfrLanguage") || "id");
+
+    // Scroll reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
